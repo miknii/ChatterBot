@@ -1,7 +1,7 @@
 import logging
 from chatterbot import languages
 from chatterbot.tagging import PosLemmaTagger
-import en_core_web_sm
+import pt_core_news_sm
 
 
 class StorageAdapter(object):
