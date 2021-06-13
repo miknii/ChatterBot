@@ -23,7 +23,7 @@ class PosLemmaTagger(object):
 
         self.punctuation_table = str.maketrans(dict.fromkeys(string.punctuation))
 
-        self.nlp = spacy.load('pt_core_news_sm')
+        self.nlp = spacy.load('en_core_web_sm')
 
     def get_text_index_string(self, text):
         """
