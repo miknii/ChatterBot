@@ -74,7 +74,7 @@ class SpacySimilarity(Comparator):
             )
             raise OptionalDependencyImportError(message)
 
-        self.nlp = spacy.load(self.language.ISO_639_1)
+        self.nlp = spacy.load('pt_core_news_sm')
 
     def compare(self, statement_a, statement_b):
         """
