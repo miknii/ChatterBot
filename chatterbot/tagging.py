@@ -1,5 +1,6 @@
 import string
 from chatterbot import languages
+import pt_core_news_sm
 
 
 class LowercaseTagger(object):
