@@ -5,5 +5,5 @@ from .chatterbot import ChatBot
 
 
 __all__ = (
-    'ChatBot', language = 'POR',
+    'ChatBot',
 )
