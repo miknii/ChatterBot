@@ -44,7 +44,7 @@ class TimeLogicAdapter(LogicAdapter):
             'É hora de beber água',
             'É hora de relaxar'
             'Que horas você vai?',
-            'Que horas passa o ônibus?,
+            'Que horas passa o ônibus?',
             'Que horas fecha o mercado?',
             'Que horas você vem?',
             'Que horas você vai?'
