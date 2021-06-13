@@ -30,22 +30,24 @@ class TimeLogicAdapter(LogicAdapter):
             raise OptionalDependencyImportError(message)
 
         self.positive = kwargs.get('positive', [
-            'what time is it',
-            'hey what time is it',
-            'do you have the time',
-            'do you know the time',
-            'do you know what time it is',
-            'what is the time'
+            'Que horas são?',
+            'Que horas são agora?',
+            'Que hora é?',
+            'Você tem as horas?'
         ])
 
         self.negative = kwargs.get('negative', [
-            'it is time to go to sleep',
-            'what is your favorite color',
-            'i had a great time',
-            'thyme is my favorite herb',
-            'do you have time to look at my essay',
-            'how do you have the time to do all this'
-            'what is it'
+            'É hora de ir dormir',
+            'É hora de tomar banho',
+            'É hora de parar',
+            'É hora de comer',
+            'É hora de beber água',
+            'É hora de relaxar'
+            'Que horas você vai?',
+            'Que horas passa o ônibus?,
+            'Que horas fecha o mercado?',
+            'Que horas você vem?',
+            'Que horas você vai?'
         ])
 
         labeled_data = (
@@ -95,7 +97,7 @@ class TimeLogicAdapter(LogicAdapter):
 
         time_features = self.time_question_features(statement.text.lower())
         confidence = self.classifier.classify(time_features)
-        response = Statement(text='Agora são ' + now.strftime('%I:%M %p'))
+        response = Statement(text='Agora são ' + now.strftime('%H:%M'))
 
         response.confidence = confidence
         return response
