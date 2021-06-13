@@ -581,9 +581,9 @@ class ELX:
 
 
 class ENG:
-    ISO_639_1 = 'en'
-    ISO_639 = 'eng'
-    ENGLISH_NAME = 'English'
+    ISO_639_1 = 'pt'
+    ISO_639 = 'por'
+    ENGLISH_NAME = 'Portuguese'
 
 
 class EPO:
