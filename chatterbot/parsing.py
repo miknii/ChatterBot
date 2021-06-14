@@ -3,141 +3,141 @@ from datetime import timedelta, datetime
 import calendar
 
 # Variations of dates that the parser can capture
-year_variations = ['ano', 'anos']
-day_variations = ['dias', 'dia']
-minute_variations = ['minuto', 'minutos']
-hour_variations = ['horas', 'hora']
-week_variations = ['semanas', 'semana']
-month_variations = ['mês', 'meses']
+year_variations = ['year', 'years', 'yrs']
+day_variations = ['days', 'day']
+minute_variations = ['minute', 'minutes', 'mins']
+hour_variations = ['hrs', 'hours', 'hour']
+week_variations = ['weeks', 'week', 'wks']
+month_variations = ['month', 'months']
 
 # Variables used for RegEx Matching
-day_names = 'segunda-feira|terça-feira|quarta-feira|quinta-feira|sexta-feira|sábado|domingo'
+day_names = 'monday|tuesday|wednesday|thursday|friday|saturday|sunday'
 month_names_long = (
-    'janeiro|fevereiro|março|abril|maio|junho|julho|agosto|setembro|outubro|novembro|dezembro'
+    'january|february|march|april|may|june|july|august|september|october|november|december'
 )
-month_names = month_names_long + '|jan|fev|mar|abr|mai|jun|jul|ago|set|out|nov|dez'
-day_nearest_names = 'hoje|ontem|amanhã|esta noite'
+month_names = month_names_long + '|jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec'
+day_nearest_names = 'today|yesterday|tomorrow|tonight|tonite'
 numbers = (
-    r'(^a(?=\s)|um|dois|três|quatro|cinco|seis|sete|oito|nove|dez|'
-    r'onze|doze|treze|quatorze|quinze|dezesseis|dezessete|'
-    r'dezoito|dezenove|vinte|trinta|quarenta|cinquenta|sessenta|setenta|'
-    r'oitenta|noventa|cem|mil)'
+    r'(^a(?=\s)|one|two|three|four|five|six|seven|eight|nine|ten|'
+    r'eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|'
+    r'eighteen|nineteen|twenty|thirty|forty|fifty|sixty|seventy|'
+    r'eighty|ninety|hundred|thousand)'
 )
 re_dmy = '(' + '|'.join(day_variations + minute_variations + year_variations + week_variations + month_variations) + ')'
-re_duration = r'(antes|depois|mais cedo|mais tarde|atrás|de\neve)'
+re_duration = r'(before|after|earlier|later|ago|from\snow)'
 re_year = r'(19|20)\d{2}|^(19|20)\d{2}'
-re_timeframe = r'este|chegando|próximo|seguinte|anterior|último|fim\de\o'
-re_ordinal = r'st|nd|rd|th|primeiro|segundo|terceiro|quarto|quinto|' + re_timeframe
+re_timeframe = r'this|coming|next|following|previous|last|end\sof\sthe'
+re_ordinal = r'st|nd|rd|th|first|second|third|fourth|fourth|' + re_timeframe
 re_time = r'(?P<hour>\d{1,2})(?=\s?(\:\d|(a|p)m))(\:(?P<minute>\d{1,2}))?(\s?(?P<convention>(am|pm)))?'
 re_separator = r'of|at|on'
 
 NUMBERS = {
     'zero': 0,
-    'um': 1,
-    'dois': 2,
-    'três': 3,
-    'quatro': 4,
-    'cinco': 5,
-    'seis': 6,
-    'sete': 7,
-    'oito': 8,
-    'nove': 9,
-    'dez': 10,
-    'onze': 11,
-    'doze': 12,
-    'treze': 13,
-    'quatorze': 14,
-    'quinze': 15,
-    'dezesseis': 16,
-    'dezessete': 17,
-    'dezoito': 18,
-    'dezenove': 19,
-    'vinte': 20,
-    'trinta': 30,
-    'quarenta': 40,
-    'cinquenta': 50,
-    'sessenta': 60,
-    'setenta': 70,
-    'oitenta': 80,
-    'noventa': 90,
-    'cem': 100,
-    'mil': 1000,
-    'milhão': 1000000,
-    'bilhão': 1000000000,
-    'trilhão': 1000000000000,
+    'one': 1,
+    'two': 2,
+    'three': 3,
+    'four': 4,
+    'five': 5,
+    'six': 6,
+    'seven': 7,
+    'eight': 8,
+    'nine': 9,
+    'ten': 10,
+    'eleven': 11,
+    'twelve': 12,
+    'thirteen': 13,
+    'fourteen': 14,
+    'fifteen': 15,
+    'sixteen': 16,
+    'seventeen': 17,
+    'eighteen': 18,
+    'nineteen': 19,
+    'twenty': 20,
+    'thirty': 30,
+    'forty': 40,
+    'fifty': 50,
+    'sixty': 60,
+    'seventy': 70,
+    'eighty': 80,
+    'ninety': 90,
+    'hundred': 100,
+    'thousand': 1000,
+    'million': 1000000,
+    'billion': 1000000000,
+    'trillion': 1000000000000,
 }
 
 
 # Mapping of Month name and Value
 HASHMONTHS = {
-    'janeiro': 1,
+    'january': 1,
     'jan': 1,
-    'fevereiro': 2,
-    'fev': 2,
-    'março': 3,
+    'february': 2,
+    'feb': 2,
+    'march': 3,
     'mar': 3,
-    'abril': 4,
-    'abr': 4,
-    'maio': 5,
-    'mai': 5,
-    'junho': 6,
+    'april': 4,
+    'apr': 4,
+    'may': 5,
+    'june': 6,
     'jun': 6,
-    'julho': 7,
+    'july': 7,
     'jul': 7,
-    'agosto': 8,
-    'ago': 8,
-    'setembro': 9,
-    'set': 9,
-    'outubro': 10,
-    'out': 10,
-    'novembro': 11,
+    'august': 8,
+    'aug': 8,
+    'september': 9,
+    'sep': 9,
+    'october': 10,
+    'oct': 10,
+    'november': 11,
     'nov': 11,
-    'dezembro': 12,
-    'dez': 12
+    'december': 12,
+    'dec': 12
 }
 
 # Days to number mapping
 HASHWEEKDAYS = {
-    'segunda-feira': 0,
-    'seg': 0,
-    'terça-feira': 1,
-    'ter': 1,
-    'quarta-feira': 2,
-    'qua': 2,
-    'quinta-feira': 3,
-    'qui': 3,
-    'sexta-feira': 4,
-    'sex': 4,
-    'sábado': 5,
-    'sáb': 5,
-    'Domingo': 6,
-    'dom': 6
+    'monday': 0,
+    'mon': 0,
+    'tuesday': 1,
+    'tue': 1,
+    'wednesday': 2,
+    'wed': 2,
+    'thursday': 3,
+    'thu': 3,
+    'friday': 4,
+    'fri': 4,
+    'saturday': 5,
+    'sat': 5,
+    'sunday': 6,
+    'sun': 6
 }
 
 # Ordinal to number
 HASHORDINALS = {
-    'zero': 0,
-    'primeiro': 1,
-    'segundo': 2,
-    'terceiro': 3,
-    'quarto': 4,
-    'quinto': 5,
-    'sexto': 6,
-    'sétimo': 7,
-    'oitavo': 8,
-    'nono': 9,
-    'décimo': 10,
-    'décimo primeiro': 11,
-    'décimo segundo': 12,
-    'décimo terceiro': 13,
-    'décimo quarto': 14,
-    'décimo quinto': 15,
-    'décimo sexto': 16,
-    'décimo sétimo': 17,
-    'décimo oitavo': 18,
-    'décimo nono': 19,
-    'vigésimo': 20,
-    'último': -1
+    'zeroth': 0,
+    'first': 1,
+    'second': 2,
+    'third': 3,
+    'fourth': 4,
+    'forth': 4,
+    'fifth': 5,
+    'sixth': 6,
+    'seventh': 7,
+    'eighth': 8,
+    'ninth': 9,
+    'tenth': 10,
+    'eleventh': 11,
+    'twelfth': 12,
+    'thirteenth': 13,
+    'fourteenth': 14,
+    'fifteenth': 15,
+    'sixteenth': 16,
+    'seventeenth': 17,
+    'eighteenth': 18,
+    'nineteenth': 19,
+    'twentieth': 20,
+    'last': -1
 }
 
 # A list tuple of regular expressions / parser fn to match
