@@ -1,7 +1,7 @@
 import logging
 from chatterbot import languages
 from chatterbot.tagging import PosLemmaTagger
-import pt_core_news_sm
+import en_core_web_sm
 
 
 class StorageAdapter(object):
@@ -21,7 +21,7 @@ class StorageAdapter(object):
         Tagger = kwargs.get('tagger', PosLemmaTagger)
 
         self.tagger = Tagger(language=kwargs.get(
-            'tagger_language', languages.POR
+            'tagger_language', languages.ENG
         ))
 
     def get_model(self, model_name):
