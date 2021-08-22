@@ -2,6 +2,7 @@ import string
 from chatterbot import languages
 import en_core_web_sm
 
+str(text)
 
 class LowercaseTagger(object):
     """
@@ -33,7 +34,7 @@ class PosLemmaTagger(object):
         bigram_pairs = []
 
         if len(text) <= 2:
-            text_without_punctuation = text.translate(self.punctuation_table)
+            text_without_punctuation = str(text).translate(self.punctuation_table)
             if len(text_without_punctuation) >= 1:
                 text = text_without_punctuation
 
