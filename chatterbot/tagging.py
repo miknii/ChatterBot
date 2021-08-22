@@ -2,8 +2,6 @@ import string
 from chatterbot import languages
 import en_core_web_sm
 
-str(text)
-
 class LowercaseTagger(object):
     """
     Returns the text in lowercase.
