@@ -134,6 +134,5 @@ HASHORDINALS = {
     'décimo sétimo': 17,
     'décimo oitavo': 18,
     'décimo nono': 19,
-    'vigésimo': 20,
-    'último': -1
+    'vigésimo': 20
 }
