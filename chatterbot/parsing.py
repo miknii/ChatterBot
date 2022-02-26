@@ -135,4 +135,4 @@ HASHORDINALS = {
     'décimo oitavo': 18,
     'décimo nono': 19,
     'vigésimo': 20,
-    'último': -1
+    'último': -1}
