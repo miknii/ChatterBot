@@ -1,6 +1,6 @@
 import string
 from chatterbot import languages
-import en_core_web_sm
+import pt_core_news_sm
 
 class LowercaseTagger(object):
     """
@@ -23,7 +23,7 @@ class PosLemmaTagger(object):
 
         self.punctuation_table = str.maketrans(dict.fromkeys(string.punctuation))
 
-        self.nlp = spacy.load('en_core_web_sm')
+        self.nlp = spacy.load('pt_core_news_sm')
 
     def get_text_index_string(self, text):
         """
