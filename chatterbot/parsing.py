@@ -135,7 +135,6 @@ HASHORDINALS = {
     'décimo oitavo': 18,
     'décimo nono': 19,
     'vigésimo': 20,
-    'último': -1
 }
 
 # A list tuple of regular expressions / parser fn to match
