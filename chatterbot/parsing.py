@@ -1,4 +1,5 @@
 import calendar
+import re
 
 # Variations of dates that the parser can capture :)
 year_variations = ['ano', 'anos']
