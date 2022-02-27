@@ -1,6 +1,6 @@
 import calendar
 
-# Variations of dates that the parser can capture
+# Variations of dates that the parser can capture :)
 year_variations = ['ano', 'anos']
 day_variations = ['dias', 'dia']
 minute_variations = ['minuto', 'minutos']
