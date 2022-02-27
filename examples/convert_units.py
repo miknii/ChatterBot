@@ -15,7 +15,7 @@ questions = [
     'one hour is how many minutes ?'
 ]
 
-# Prints the convertion given the specific question
+# Prints the convertion given the specific question - ok
 for question in questions:
     response = bot.get_response(question)
     print(question + ' -  Response: ' + response.text)
