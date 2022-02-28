@@ -1,5 +1,5 @@
 import calendar
-import re
+import regex as re
 
 # Variations of dates that the parser can capture :)
 year_variations = ['ano', 'anos']
@@ -417,7 +417,7 @@ regex = [
         re.compile(
             r'''
             (?P<adverb>%s) # today, yesterday, tomorrow, tonight
-            ((\s|,\s|\s(%s))?\s*(%s))?
+            ((s|,s|s(%s))?s*(%s))?
             ''' % (day_nearest_names, re_separator, re_time),
             (re.VERBOSE | re.IGNORECASE)
         ),
