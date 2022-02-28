@@ -4,7 +4,7 @@ designed to compare one statement to another.
 """
 from chatterbot.exceptions import OptionalDependencyImportError
 from difflib import SequenceMatcher
-import en_core_web_sm
+import pt_core_news_sm
 
 class Comparator:
 
@@ -127,7 +127,7 @@ class JaccardSimilarity(Comparator):
             )
             raise OptionalDependencyImportError(message)
 
-        self.nlp = spacy.load('en_core_web_sm')
+        self.nlp = spacy.load('pt_core_news_sm')
 
     def compare(self, statement_a, statement_b):
         """
