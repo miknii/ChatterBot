@@ -1,5 +1,6 @@
 import calendar
 import regex as re
+import datetime
 
 # Variations of dates that the parser can capture :)
 year_variations = ['ano', 'anos']
