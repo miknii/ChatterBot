@@ -2,9 +2,6 @@ from chatterbot.logic import LogicAdapter
 
 
 class SpecificResponseAdapter(LogicAdapter):
-    :kwargs:
-        * *input_text* ("Puta", "Vagabunda", "Vai tomar no cu", "vai se ferrar", "vai se fuder", "vai se foder", "seu viado", "seu corno", "corna") --
-        * *output_text* ("O que você disse não foi legal... Reflita sobre esses impulsos! Eles podem trazer graves consequências para os outros e com certeza trarão para você se não mudá-los.) --
     """
     Return a specific response to a specific input.
 
