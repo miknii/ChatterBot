@@ -11,11 +11,11 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='statement',
             name='search_text',
-            field=models.CharField(blank=True, max_length=400),
+            field=models.CharField(blank=True, max_length=2000),
         ),
         migrations.AddField(
             model_name='statement',
             name='search_in_response_to',
-            field=models.CharField(blank=True, max_length=400),
+            field=models.CharField(blank=True, max_length=2000),
         ),
     ]
