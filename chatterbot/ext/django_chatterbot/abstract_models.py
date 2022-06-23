@@ -84,6 +84,16 @@ class AbstractBaseStatement(models.Model, StatementMixin):
         TAG_MODEL,
         related_name='statements'
     )
+    
+    tags = models.ManyToManyField(
+        TAG_MODEL,
+        related_name='statements'
+    )
+    
+    rating = models.IntegerField(
+        blank=True,
+        null=True,
+    )
 
     # This is the confidence with which the chat bot believes
     # this is an accurate response. This value is set when the
