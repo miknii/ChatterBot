@@ -12,6 +12,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='statement',
             name='text',
-            field=models.CharField(max_length=400, unique=True),
+            field=models.CharField(max_length=2000, unique=True),
         ),
     ]
