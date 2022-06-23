@@ -30,12 +30,12 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='statement',
             name='in_response_to',
-            field=models.CharField(max_length=400, null=True),
+            field=models.CharField(max_length=2000, null=True),
         ),
         migrations.AlterField(
             model_name='statement',
             name='text',
-            field=models.CharField(max_length=400),
+            field=models.CharField(max_length=2000),
         ),
         migrations.DeleteModel(
             name='Conversation',
