@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('django_chatterbot', '0020_remove_statement_rating'),
+        ('django_chatterbot', '0018_text_max_length'),
     ]
 
     operations = [
