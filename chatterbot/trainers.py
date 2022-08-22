@@ -97,7 +97,7 @@ class ListTrainer(Trainer):
                     conversation_count + 1, len(conversation)
                 )
 
-            statement_search_text = self.chatbot.storage.tagger.get_bigram_pair_string(text)
+            statement_search_text = self.chatbot.storage.tagger.get_text_index_string(text)
 
             statement = self.get_preprocessed_statement(
                 Statement(
