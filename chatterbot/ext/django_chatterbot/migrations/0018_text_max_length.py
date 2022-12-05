@@ -11,21 +11,21 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='statement',
             name='in_response_to',
-            field=models.CharField(max_length=255, null=True),
+            field=models.CharField(max_length=2000, null=True),
         ),
         migrations.AlterField(
             model_name='statement',
             name='search_in_response_to',
-            field=models.CharField(blank=True, max_length=255),
+            field=models.CharField(blank=True, max_length=2000),
         ),
         migrations.AlterField(
             model_name='statement',
             name='search_text',
-            field=models.CharField(blank=True, max_length=255),
+            field=models.CharField(blank=True, max_length=2000),
         ),
         migrations.AlterField(
             model_name='statement',
             name='text',
-            field=models.CharField(max_length=255),
+            field=models.CharField(max_length=2000),
         ),
     ]

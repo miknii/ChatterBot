@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
             name='Statement',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('text', models.CharField(max_length=255, unique=True)),
+                ('text', models.CharField(max_length=2000, unique=True)),
             ],
         ),
         migrations.AddField(
